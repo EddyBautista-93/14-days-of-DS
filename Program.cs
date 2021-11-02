@@ -43,6 +43,24 @@ namespace _14_days_of_DS
             return false;
         }
 
+
+        //------------------------------------------------------------------
+        //Day 2 - Two Sum
+        // Given an array of integers nums and an integer target,
+        // return indices of 
+        // the two numbers such that they add up to target.
+        public int[] TwoSum(int[] nums, int target)
+        {
+            int[] indicesSum = { 0, 0 };
+
+
+            return indicesSum;
+
+        }
+
+
+
+
         private static void Main(string[] args)
         {
             // Contains Duplicate
