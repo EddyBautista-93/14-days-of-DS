@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace _14_days_of_DS
 {
@@ -43,29 +44,38 @@ namespace _14_days_of_DS
             return false;
         }
 
-
         //------------------------------------------------------------------
         //Day 2 - Two Sum
         // Given an array of integers nums and an integer target,
-        // return indices of 
+        // return indices of
         // the two numbers such that they add up to target.
-        public int[] TwoSum(int[] nums, int target)
+        public static int[] TwoSum(int[] nums, int target)
         {
-            int[] indicesSum = { 0, 0 };
+            Dictionary<int, int> numberAndComplement = new Dictionary<int, int>();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int complement = target - (int)nums[i];
 
-
-            return indicesSum;
-
+                if (numberAndComplement.ContainsValue(complement))
+                {
+                    int[] vs = { numberAndComplement.FirstOrDefault(x => x.Value == complement).Key, i };
+                    return vs;
+                }
+                numberAndComplement.Add(i, nums[i]);
+            }
+            return new int[] { 0, 0 };
         }
+    
 
+    private static void Main(string[] args)
+    {
+        // Contains Duplicate
+        int[] testArrayOne = { 1, 5, -2, -4, 0 };
+        ContainsDuplicate(testArrayOne);
 
-
-
-        private static void Main(string[] args)
-        {
-            // Contains Duplicate
-            int[] testArrayOne = { 1, 5, -2, -4, 0 };
-            ContainsDuplicate(testArrayOne);
-        }
+        //Two Sum
+        int[] twoSumArr = { 2, 7, 11, 15 };
+        TwoSum(twoSumArr, 9);
     }
+}
 }
