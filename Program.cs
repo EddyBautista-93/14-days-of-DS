@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -68,23 +69,57 @@ namespace _14_days_of_DS
 
         //--------------------------------------------------------------
         // Day 3 - Intersect
-        // Given two integer arrays nums1 and nums2, return an 
-        // array of their intersection.Each element in the 
-        // result must appear as many times as it shows in 
-        // both arrays and you may return the result in any 
+        // Given two integer arrays nums1 and nums2, return an
+        // array of their intersection.Each element in the
+        // result must appear as many times as it shows in
+        // both arrays and you may return the result in any
         // order.
+        public static int[] Intersect(int[] nums1, int[] nums2)
+        {
+            
+            List<int> intersectedList = new List<int>();
+            Dictionary<int, int> myDict = new Dictionary<int, int>();
+            foreach (int x in nums1)
+            {
+                try
+                {
+                    myDict.Add(x, 1);
+                }
+                catch
+                {
+                    myDict[x]++;
+                }
+            }
+
+            foreach(int x in nums2)
+            {
+                if (myDict.ContainsKey(x) && myDict[x] > 0)
+                {
+                    myDict[x]--;
+                    intersectedList.Add(x);
+                }
+            }
 
 
 
-    private static void Main(string[] args)
-    {
-        // Contains Duplicate
-        int[] testArrayOne = { 1, 5, -2, -4, 0 };
-        ContainsDuplicate(testArrayOne);
 
-        //Two Sum
-        int[] twoSumArr = { 2, 7, 11, 15 };
-        TwoSum(twoSumArr, 9);
+            return intersectedList.ToArray();
+        }
+
+        private static void Main(string[] args)
+        {
+            // Contains Duplicate
+            int[] testArrayOne = { 1, 5, -2, -4, 0 };
+            //ContainsDuplicate(testArrayOne);
+
+            //Two Sum
+            int[] twoSumArr = { 2, 7, 11, 15 };
+            //TwoSum(twoSumArr, 9);
+
+            //Intersect
+            int[] intersectArr1 = { 1, 2, 2, 1 };
+            int[] intersectArr2 = { 2, 2, 5, 1 };
+            Intersect(intersectArr1, intersectArr2);
+        }
     }
-}
 }
