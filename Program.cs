@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -76,7 +75,6 @@ namespace _14_days_of_DS
         // order.
         public static int[] Intersect(int[] nums1, int[] nums2)
         {
-            
             List<int> intersectedList = new List<int>();
             Dictionary<int, int> myDict = new Dictionary<int, int>();
             foreach (int x in nums1)
@@ -91,7 +89,7 @@ namespace _14_days_of_DS
                 }
             }
 
-            foreach(int x in nums2)
+            foreach (int x in nums2)
             {
                 if (myDict.ContainsKey(x) && myDict[x] > 0)
                 {
@@ -99,9 +97,6 @@ namespace _14_days_of_DS
                     intersectedList.Add(x);
                 }
             }
-
-
-
 
             return intersectedList.ToArray();
         }
