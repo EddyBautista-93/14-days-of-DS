@@ -102,7 +102,20 @@ namespace _14_days_of_DS
         }
 
 
-        // Day 4 Best Time to Buy and Sell Stock
+        // Maximum Subarray
+
+        // Given an integer array nums, find the contiguous 
+        // subarray (containing at least one number) which
+        // has the largest sum and return its sum.
+
+        // A subarray is a contiguous part of an array.
+
+        public static int MaxSubArray(int[] nums)
+        {
+            return 0;
+        }
+
+        // Best Time to Buy and Sell Stock
         // You are given an array prices where prices[i] is the price of a given stock on the ith day.
 
         // You want to maximize your profit by choosing a single day to buy one stock and choosing a 
@@ -112,6 +125,7 @@ namespace _14_days_of_DS
         // profit, return 0.
         public int MaxProfit(int[] prices)
         {
+            // 
 
             return 0;
         }
