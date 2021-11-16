@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -112,7 +113,17 @@ namespace _14_days_of_DS
 
         public static int MaxSubArray(int[] nums)
         {
-            return 0;
+            int sum = nums[0];
+            int current = 0;
+            for (var i = 0; i < nums.Length; i++)
+            {
+                if(current < 0){
+                    current = 0;
+                }
+                current+= nums[i];
+                sum = Math.Max(sum,current);
+            }
+            return sum;
         }
 
         // Best Time to Buy and Sell Stock
